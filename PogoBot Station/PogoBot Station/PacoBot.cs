@@ -14,7 +14,7 @@ namespace PacoBot_Station
 {
     public class PacoBot
     {
-        public const ulong GuildID = 603326992053567507;
+        public const ulong GuildID = 0;
 
         public static DiscordSocketClient Client;
         public static DiscordSocketRestClient RestClient;
@@ -50,7 +50,7 @@ namespace PacoBot_Station
             ExcelSheetHandler.ConnectSheet();
             await m_CommandHandler.InstallCommandsAsync();
 
-            string token = "ODQzMjQwNzExMzg5OTcwNDMy.YKA_HA.0lVhd8vhxfNdShfHYkwVKIROaQc";
+            string token = "Token";
 
             await Client.LoginAsync(TokenType.Bot, token);
             await Client.StartAsync();

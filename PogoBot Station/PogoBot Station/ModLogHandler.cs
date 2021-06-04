@@ -21,14 +21,14 @@ namespace PacoBot_Station
             Reason,
         }
 
-        public const string StevenIconUrl = "https://cdn.discordapp.com/avatars/181030484816560128/e7c491482345e5b042760851daccda68.png?size=128";
+        public const string StevenIconUrl = "iconlink";
 
         public bool IsOpened { get; private set; }
 
         public ulong CurrentUserID { get; private set; }
 
-        public const ulong ModLogChatID = 820761400354930758;
-        public const ulong ModChatID = 820769956303994940;
+        public const ulong ModLogChatID = 0;
+        public const ulong ModChatID = 0;
 
         private Dictionary<LogField, object> m_CurrentModLogValues;
 
@@ -70,7 +70,7 @@ namespace PacoBot_Station
             EmbedFooterBuilder footer = new EmbedFooterBuilder();
             embedBuilder.Title = "ModLog help";
 
-            footer.Text = "Need help message Stevenchiefo#5635";
+            footer.Text = "Need help message User";
             footer.IconUrl = _message.Author.GetAvatarUrl();
 
             embedBuilder.Color = Color.DarkBlue;
