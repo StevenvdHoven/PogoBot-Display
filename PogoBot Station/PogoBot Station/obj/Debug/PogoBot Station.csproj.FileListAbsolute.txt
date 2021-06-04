@@ -1,0 +1,92 @@
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.csprojAssemblyReference.cache
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.csproj.CoreCompileInputs.cache
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\PogoBot Station.exe.config
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\PogoBot Station.exe
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\PogoBot Station.pdb
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Commands.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Core.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Rest.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Webhook.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.WebSocket.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Auth.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Core.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.PlatformServices.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Sheets.v4.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Newtonsoft.Json.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Collections.Immutable.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Interactive.Async.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Linq.Async.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Threading.Tasks.Extensions.dll
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Commands.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Core.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Rest.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Webhook.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.WebSocket.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.pdb
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Auth.pdb
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Auth.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Core.pdb
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Core.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Sheets.v4.pdb
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Sheets.v4.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Newtonsoft.Json.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Collections.Immutable.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Interactive.Async.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Linq.Async.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Threading.Tasks.Extensions.xml
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.csproj.CopyComplete
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.exe
+F:\Visual Studio Code\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.pdb
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\PogoBot Station.exe.config
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\PogoBot Station.exe
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\PogoBot Station.pdb
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Commands.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Core.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Rest.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Webhook.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.WebSocket.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Auth.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Core.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.PlatformServices.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Sheets.v4.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Newtonsoft.Json.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Collections.Immutable.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Interactive.Async.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Linq.Async.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Commands.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Core.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Rest.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.Webhook.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Discord.Net.WebSocket.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.pdb
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Auth.pdb
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Auth.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Core.pdb
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Core.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Sheets.v4.pdb
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Google.Apis.Sheets.v4.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\Newtonsoft.Json.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Collections.Immutable.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Interactive.Async.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Linq.Async.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.csprojAssemblyReference.cache
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.csproj.CoreCompileInputs.cache
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.csproj.CopyComplete
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.exe
+D:\VisualStudio projects\PogoBot\PogoBot\PogoBot Station\PogoBot Station\obj\Debug\PogoBot Station.pdb

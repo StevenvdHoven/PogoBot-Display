@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PogoBot Station", "PogoBot Station\PogoBot Station.csproj", "{A6B66F99-F591-49AC-974C-01D0E07F009A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6B66F99-F591-49AC-974C-01D0E07F009A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B66F99-F591-49AC-974C-01D0E07F009A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B66F99-F591-49AC-974C-01D0E07F009A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B66F99-F591-49AC-974C-01D0E07F009A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9623C3D-E54A-4332-ADFC-1645EDC7C840}
+	EndGlobalSection
+EndGlobal
