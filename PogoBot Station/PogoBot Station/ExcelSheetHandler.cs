@@ -19,7 +19,7 @@ namespace PacoBot_Station
 {
     public class ExcelSheetHandler
     {
-        public const string SheetId = "14q8_QegkGyfBR5X_9tXcFoVE-4qymxmOYiESmFP6UgM";
+        public const string SheetId = "id";
         public static readonly string sheet = "Per User Logs";
         public static SheetsService Service;
 
@@ -78,7 +78,7 @@ namespace PacoBot_Station
             // Define request parameters.
             String spreadsheetId = SheetId;
             String range = $"{sheet}!A2:F{Count + 1}";
-            if(Count == 0)
+            if (Count == 0)
             {
                 range = $"{sheet}!A2:F1000";
             }
