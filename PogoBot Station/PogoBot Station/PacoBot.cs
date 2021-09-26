@@ -2,6 +2,7 @@
 using Discord.WebSocket;
 using Discord.Commands;
 using System;
+using System.Threading;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace PacoBot_Station
 {
     public class PacoBot
     {
-        public const ulong GuildID = 0;
+        public const ulong GuildID = 603326992053567507;
 
         public static DiscordSocketClient Client;
         public static DiscordSocketRestClient RestClient;
@@ -22,8 +23,6 @@ namespace PacoBot_Station
         public static RestGuild RestGuild;
 
         private CommandService m_Command;
-
-        private IMessageChannel m_channel;
 
         private BehaviorHandler m_BehaviorChecker;
 
@@ -37,7 +36,6 @@ namespace PacoBot_Station
 
             Client = new DiscordSocketClient(config);
 
-            m_channel = (ITextChannel)Client.GetChannel(843239738437533697);
             Client.MessageReceived += OnMesssage;
             Client.ReactionAdded += OnReaction;
 
@@ -50,7 +48,7 @@ namespace PacoBot_Station
             ExcelSheetHandler.ConnectSheet();
             await m_CommandHandler.InstallCommandsAsync();
 
-            string token = "Token";
+            string token = "ODQzMjQwNzExMzg5OTcwNDMy.YKA_HA.mUXDg8IGp38CikmMrSO4SufhzCI";
 
             await Client.LoginAsync(TokenType.Bot, token);
             await Client.StartAsync();
@@ -67,35 +65,77 @@ namespace PacoBot_Station
 
         private async Task OnMesssage(SocketMessage _message)
         {
-            if (Guild == null)
+            try
             {
-                Guild = Client.GetGuild(GuildID);
-                RestClient = Client.Rest;
-                RestGuild = await RestClient.GetGuildAsync(GuildID);
+                if (Guild == null)  // if the guild is null we second check for it
+                {
+                    Guild = Client.GetGuild(GuildID);
+                    RestClient = Client.Rest;
+                    RestGuild = await RestClient.GetGuildAsync(GuildID);
+                }
+
+                SocketUserMessage message = _message as SocketUserMessage;  // Converting the SocketMessage to a SocketUserMessage for easier use.
+
+                if (message == null)    // If message is NULL we stop and return.
+                    return;
+
+                StartBadWordThreading(message); // We start the bad word algeritm to check if we need to send a warning.
+
+                string[] _contextMessage = message.Content.Split(' ');        // Split up the message in bits so we can see the command.
+
+                SocketGuildUser _user = message.Author as SocketGuildUser;    // Getting the user of the message.
+
+                StartModLogThread(message, _contextMessage, _user);           // Starting the modlog thread if that command is active.
+                StartBehaviorCommandThread(message, _contextMessage, _user);  // Starting the behavior thread if that command if active.
             }
+            catch (Exception _E)
+            {
+                Console.WriteLine(_E);
+            }
+        }
 
-            SocketUserMessage message = _message as SocketUserMessage;
-
-            if (message == null)
+        private void StartBehaviorCommandThread(SocketUserMessage message, string[] _contextMessage, SocketGuildUser _user)
+        {
+            if (_contextMessage[0].Contains('!') && CommandHandler.AllowedRole(_user))
+            {
+                Task task = BehaviorHandler.OnCommand(message);
+                task.Wait();
                 return;
+            }
+        }
 
-            string[] _contextMessage = message.Content.Split(' ');
-
-            SocketGuildUser _user = message.Author as SocketGuildUser;
+        private void StartModLogThread(SocketUserMessage message, string[] _contextMessage, SocketGuildUser _user)
+        {
             if (_contextMessage[0].ToLower() == "!modlog" && CommandHandler.AllowedRole(_user))
             {
-                await m_ModLogHandler.ModLogCommand(message);
-                return;
+                Thread _thread = new Thread(new ThreadStart(async () =>
+                {
+                    await m_ModLogHandler.ModLogCommand(message);
+                }));
+                _thread.Start();
             }
+        }
 
-            if (_contextMessage[0][0] != '!')
+        private void StartBadWordThreading(SocketUserMessage message)
+        {
+            if (message.Content.ToLower().StartsWith("!") && CommandHandler.AllowedRole(message.Author as SocketGuildUser))
+                return;
+            Thread _thread = new Thread(new ThreadStart(async () =>
             {
                 BehaviorCheckFeedBack _feedback = await BehaviorHandler.IsBadWord(message);
+
                 if (_feedback.IsBad)
                 {
-                    await m_CommandHandler.AddressBadWork(message, _feedback);
+                    Thread _tempThread = new Thread(new ThreadStart(async () =>
+                    {
+                        await m_CommandHandler.AddressBadWork(message, _feedback);
+                    }));
+                    _tempThread.Start();
                 }
-            }
+            }));
+
+            if (message.Author.IsBot == false)
+                _thread.Start();
         }
 
         public static async Task SendMessage(ISocketMessageChannel _Channel, string msg)

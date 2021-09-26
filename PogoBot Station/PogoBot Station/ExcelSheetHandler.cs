@@ -19,7 +19,7 @@ namespace PacoBot_Station
 {
     public class ExcelSheetHandler
     {
-        public const string SheetId = "id";
+        public const string SheetId = "14q8_QegkGyfBR5X_9tXcFoVE-4qymxmOYiESmFP6UgM";
         public static readonly string sheet = "Per User Logs";
         public static SheetsService Service;
 
@@ -31,17 +31,9 @@ namespace PacoBot_Station
         public static void ConnectSheet()
         {
             UserCredential credential;
-            if (File.Exists("Accounts_data.json"))
-            {
-                ExcelData _data = LoadData();
-                Count = _data.Count;
-            }
-            else
-            {
-                SaveData();
-                ExcelData _data = LoadData();
-                Count = _data.Count;
-            }
+
+            ExcelData _data = LoadData();
+            Count = _data.Count;
             using (FileStream stream =
                 new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
             {
@@ -66,10 +58,12 @@ namespace PacoBot_Station
 
             Service = service;
 
-            List<ModLogSaveData> _accounts = ReadSheet();
+            List<ModLogSaveData> _accounts = ReadSheetAll();
             if (_accounts.Count < Count)
             {
                 Count = _accounts.Count;
+                if (Count == 0)
+                    Count = 1;
             }
         }
 
@@ -77,11 +71,7 @@ namespace PacoBot_Station
         {
             // Define request parameters.
             String spreadsheetId = SheetId;
-            String range = $"{sheet}!A2:F{Count + 1}";
-            if (Count == 0)
-            {
-                range = $"{sheet}!A2:F1000";
-            }
+            String range = $"{sheet}!A2:F{Count}";
             SpreadsheetsResource.ValuesResource.GetRequest request =
                     Service.Spreadsheets.Values.Get(spreadsheetId, range);
 
@@ -91,7 +81,6 @@ namespace PacoBot_Station
             List<ModLogSaveData> _data = new List<ModLogSaveData>();
             if (values != null && values.Count > 0)
             {
-                int _index = 2;
                 foreach (IList<object> row in values)
                 {
                     if (row != null)
@@ -103,11 +92,7 @@ namespace PacoBot_Station
                             int _warningLevel = Convert.ToInt16(row[2]);
                             int _kicks = Convert.ToInt16(row[3]);
                             string _banned = row[4].ToString();
-                            string _note = "none";
-                            if (row.Count == 6)
-                            {
-                                _note = row[5].ToString();
-                            }
+                            string _note = row[5].ToString();
 
                             ModLogSaveData _saveData = new ModLogSaveData
                             {
@@ -117,14 +102,60 @@ namespace PacoBot_Station
                                 Kicks = _kicks,
                                 Banned = _banned,
                                 Note = _note,
-                                Index = _index,
                             };
-                            _index++;
                             _data.Add(_saveData);
                         }
                     }
                 }
             }
+            return _data;
+        }
+
+        public static List<ModLogSaveData> ReadSheetAll()
+        {
+            // Define request parameters.
+            String spreadsheetId = SheetId;
+            String range = $"{sheet}!A2:F{1000000}";
+            SpreadsheetsResource.ValuesResource.GetRequest request =
+                    Service.Spreadsheets.Values.Get(spreadsheetId, range);
+
+            ValueRange response = request.Execute();
+            IList<IList<object>> values = response.Values;
+
+            List<ModLogSaveData> _data = new List<ModLogSaveData>();
+            if (values != null && values.Count > 0)
+            {
+                foreach (IList<object> row in values)
+                {
+                    if (row != null)
+                    {
+                        if (row.Count > 0)
+                        {
+                            if ((string)row[0] != "")
+                            {
+                                string _username = row[0].ToString();
+                                ulong _userId = Convert.ToUInt64((string)row[1]);
+                                int _warningLevel = Convert.ToInt16(row[2]);
+                                int _kicks = Convert.ToInt16(row[3]);
+                                string _banned = row[4].ToString();
+                                string _note = row[5].ToString();
+
+                                ModLogSaveData _saveData = new ModLogSaveData
+                                {
+                                    UserName = _username,
+                                    UserID = _userId,
+                                    WarningLevel = _warningLevel,
+                                    Kicks = _kicks,
+                                    Banned = _banned,
+                                    Note = _note,
+                                };
+                                _data.Add(_saveData);
+                            }
+                        }
+                    }
+                }
+            }
+            Count = _data.Count;
             return _data;
         }
 
@@ -138,12 +169,11 @@ namespace PacoBot_Station
                 if (_accounts[i].UserID == _data.UserID)
                 {
                     ModLogSaveData _saveData = _accounts[i];
-                    _saveData.WarningLevel = _saveData.WarningLevel + 1;
+                    _saveData.WarningLevel++;
                     if (_data.Note != " " || _data.Note != "")
                     {
                         _saveData.Note += " : " + _data.Note;
                     }
-                    index = _saveData.Index;
                     _data = _saveData;
                     update = true;
                 }
@@ -194,6 +224,23 @@ namespace PacoBot_Station
             using (StreamWriter stream = File.CreateText("Accounts_data.json"))
             {
                 List<ModLogSaveData> _accounts = ReadSheet();
+                ExcelData excelData = new ExcelData
+                {
+                    Count = Count,
+                    CharLastAxis = "F",
+                    Accounts = _accounts,
+                };
+                string _jsonstring = JsonConvert.SerializeObject(excelData);
+                stream.Write(_jsonstring);
+                stream.Close();
+            }
+        }
+
+        public static void SaveDataReset()
+        {
+            using (StreamWriter stream = File.CreateText("Accounts_data.json"))
+            {
+                List<ModLogSaveData> _accounts = ReadSheetAll();
                 ExcelData excelData = new ExcelData
                 {
                     Count = Count,

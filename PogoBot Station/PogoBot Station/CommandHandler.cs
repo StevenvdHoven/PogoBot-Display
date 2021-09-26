@@ -50,15 +50,6 @@ namespace PacoBot_Station
         public async Task InstallCommandsAsync()
         {
             PacoBot.Client.MessageReceived += HandleCommandAsync;
-
-            // Here we discover all of the command modules in the entry
-            // assembly and load them. Starting from Discord.NET 2.0, a
-            // service provider is required to be passed into the
-            // module registration method to inject the
-            // required dependencies.
-            //
-            // If you do not use Dependency Injection, pass null.
-            // See Dependency Injection guide for more information.
             await CommandService.AddModulesAsync(assembly: Assembly.GetEntryAssembly(),
                                             services: null);
         }
@@ -123,7 +114,7 @@ namespace PacoBot_Station
             embedBuilder.ThumbnailUrl = _message.Author.GetAvatarUrl();
 
             Embed embed = embedBuilder.Build();
-            IMessageChannel _channel = PacoBot.Client.GetChannel(ModLogHandler.ModChatID) as IMessageChannel;
+            IMessageChannel _Channel = (IMessageChannel)PacoBot.Client.GetChannel(ModLogHandler.ModLogChatID);
             string _mentions = "";
             for (int i = 0; i < ModlogRoles.Count; i++)
             {
@@ -131,7 +122,7 @@ namespace PacoBot_Station
                 _mentions += _role.Mention + " ";
             }
 
-            await _channel.SendMessageAsync(_mentions, false, embed);
+            await _Channel.SendMessageAsync(_mentions, false, embed);
 
             if (_feedback.DeleteMessages != null)
             {
@@ -171,7 +162,7 @@ namespace PacoBot_Station
         [Summary("excel reqeust")]
         public async Task ExcelReqeust()
         {
-            ExcelSheetHandler.SaveData();
+            ExcelSheetHandler.SaveDataReset();
             await Task.CompletedTask;
         }
     }

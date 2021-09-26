@@ -21,7 +21,7 @@ namespace PacoBot_Station
             Reason,
         }
 
-        public const string StevenIconUrl = "iconlink";
+        public const string StevenIconUrl = "LogoUrl";
 
         public bool IsOpened { get; private set; }
 
@@ -70,7 +70,7 @@ namespace PacoBot_Station
             EmbedFooterBuilder footer = new EmbedFooterBuilder();
             embedBuilder.Title = "ModLog help";
 
-            footer.Text = "Need help message User";
+            footer.Text = "Need help message discordID";
             footer.IconUrl = _message.Author.GetAvatarUrl();
 
             embedBuilder.Color = Color.DarkBlue;
@@ -81,10 +81,23 @@ namespace PacoBot_Station
             {
                 _Commands += ".**!modlog** " + _explaination[i] + "\n";
             }
-            EmbedFieldBuilder embedFieldBuilder = new EmbedFieldBuilder();
-            embedFieldBuilder.WithName("**Commands**");
-            embedFieldBuilder.WithValue(_Commands);
-            embedBuilder.AddField(embedFieldBuilder);
+            EmbedFieldBuilder embedFieldBuilder1 = new EmbedFieldBuilder();
+            embedFieldBuilder1.WithName("**Modlog Commands**");
+            embedFieldBuilder1.WithValue(_Commands);
+
+            embedBuilder.AddField(embedFieldBuilder1);
+
+            EmbedFieldBuilder embedFieldBuilder2 = new EmbedFieldBuilder();
+            embedFieldBuilder2.WithName("**Setting Commands**");
+
+            string _Context = "";
+
+            _Context += $"**!acw** : add a critical word\n";
+            _Context += $"**!rcw** : Remove a critical word\n";
+            _Context += $"**!lcw** : Show critical word list\n";
+            embedFieldBuilder2.WithValue(_Context);
+
+            embedBuilder.AddField(embedFieldBuilder2);
 
             EmbedAuthorBuilder embedAuthorBuilder = new EmbedAuthorBuilder();
             embedAuthorBuilder.IconUrl = PacoBot.Client.CurrentUser.GetAvatarUrl();
@@ -135,39 +148,59 @@ namespace PacoBot_Station
 
         private async Task SetActionModLog(SocketUserMessage _message)
         {
-            string[] _commandContext = _message.Content.Split(' ');
+            try
+            {
+                string[] _commandContext = _message.Content.Split(' ');
 
-            if (m_CurrentModLogValues.ContainsKey(LogField.Action))
-            {
-                m_CurrentModLogValues[LogField.Action] = _commandContext[2];
+                if (_commandContext.Length >= 3)
+                {
+                    if (m_CurrentModLogValues.ContainsKey(LogField.Action))
+                    {
+                        m_CurrentModLogValues[LogField.Action] = _commandContext[2];
+                    }
+                    else
+                    {
+                        m_CurrentModLogValues.Add(LogField.Action, _commandContext[2]);
+                    }
+                }
+                await Task.CompletedTask;
             }
-            else
+            catch (Exception _e)
             {
-                m_CurrentModLogValues.Add(LogField.Action, _commandContext[2]);
+                Console.WriteLine(_e);
             }
-            await Task.CompletedTask;
         }
 
         private async Task SetReasonModLog(SocketUserMessage _message)
         {
-            string[] _commandContext = _message.Content.Split(' ');
+            try
+            {
+                string[] _commandContext = _message.Content.Split(' ');
 
-            string _fullcontext = "";
-            for (int i = 2; i < _commandContext.Length; i++)
-            {
-                _fullcontext += _commandContext[i];
-                _fullcontext += " ";
-            }
+                string _fullcontext = "";
+                if (_commandContext.Length >= 3)
+                {
+                    for (int i = 2; i < _commandContext.Length; i++)
+                    {
+                        _fullcontext += _commandContext[i];
+                        _fullcontext += " ";
+                    }
 
-            if (m_CurrentModLogValues.ContainsKey(LogField.Reason))
-            {
-                m_CurrentModLogValues[LogField.Reason] = _fullcontext;
+                    if (m_CurrentModLogValues.ContainsKey(LogField.Reason))
+                    {
+                        m_CurrentModLogValues[LogField.Reason] = _fullcontext;
+                    }
+                    else
+                    {
+                        m_CurrentModLogValues.Add(LogField.Reason, _fullcontext);
+                    }
+                }
+                await Task.CompletedTask;
             }
-            else
+            catch (Exception _e)
             {
-                m_CurrentModLogValues.Add(LogField.Reason, _fullcontext);
+                Console.WriteLine(_e);
             }
-            await Task.CompletedTask;
         }
 
         private async Task SetUserID(SocketUserMessage _message)
@@ -175,18 +208,21 @@ namespace PacoBot_Station
             try
             {
                 string[] _commandContext = _message.Content.Split(' ');
-                ulong id = Convert.ToUInt64(_commandContext[2]);
-                RestGuildUser user = await GetUser(id);
+                if (_commandContext.Length >= 3)
+                {
+                    ulong id = Convert.ToUInt64(_commandContext[2]);
+                    RestGuildUser user = await GetUser(id);
 
-                if (m_CurrentModLogValues.ContainsKey(LogField.UserName))
-                {
-                    m_CurrentModLogValues[LogField.UserID] = user.Id;
-                    m_CurrentModLogValues[LogField.UserName] = user.Username + "#" + user.DiscriminatorValue;
-                }
-                else
-                {
-                    m_CurrentModLogValues.Add(LogField.UserID, user.Id);
-                    m_CurrentModLogValues.Add(LogField.UserName, user.Username + "#" + user.DiscriminatorValue);
+                    if (m_CurrentModLogValues.ContainsKey(LogField.UserName))
+                    {
+                        m_CurrentModLogValues[LogField.UserID] = user.Id;
+                        m_CurrentModLogValues[LogField.UserName] = user.Username + "#" + user.DiscriminatorValue;
+                    }
+                    else
+                    {
+                        m_CurrentModLogValues.Add(LogField.UserID, user.Id);
+                        m_CurrentModLogValues.Add(LogField.UserName, user.Username + "#" + user.DiscriminatorValue);
+                    }
                 }
                 await Task.CompletedTask;
             }
